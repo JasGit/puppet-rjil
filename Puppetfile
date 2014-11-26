@@ -63,7 +63,7 @@ mod 'nanliu/staging',
 
 mod 'puppetlabs/apache',
   :git => "#{base_url}/puppetlabs/puppetlabs-apache",
-  :ref => 'eb191cbeb0d3ca'
+  :ref => '1.2.0'
 
 mod 'puppetlabs/apt',
   :git => "#{base_url}/puppetlabs/puppetlabs-apt",
@@ -86,8 +86,8 @@ mod 'puppetlabs/concat',
   :ref => '1.1.1'
 
 mod 'enovance/ceph',
-  :git => "#{base_url}/jiocloud/puppet-ceph",
-  :ref => 'svn_to_git_2'
+  :git => "#{base_url}/hkumarmk/puppet-ceph",
+  :ref => 'radosgw'
 
 mod 'stackforge/glance',
   :git => "#{base_url}/stackforge/puppet-glance",

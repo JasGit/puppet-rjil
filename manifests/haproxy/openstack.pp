@@ -10,6 +10,8 @@ class rjil::haproxy::openstack(
   $cinder_ips            = values(service_discover_consul('cinder', 'real')),
   $nova_ips              = values(service_discover_consul('nova', 'real')),
   $neutron_ips           = values(service_discover_consul('neutron', 'real')),
+  $radosgw_ips           = values(service_discover_consul('radosgw', 'real')),
+  $radosgw_port          = '80',
   $horizon_port          = '80',
   $horizon_https_port    = '443',
   $novncproxy_port       = '6080',
@@ -40,6 +42,11 @@ class rjil::haproxy::openstack(
       'balance'      => 'source',
       'option'       => ['tcpka','abortonclose']
     },
+  }
+
+  rjil::haproxy_service { 'radosgw':
+    balancer_ports    => $radosgw_port,
+    cluster_addresses => $radosgw_ips,
   }
 
   rjil::haproxy_service { 'horizon-https':

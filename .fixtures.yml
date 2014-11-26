@@ -59,7 +59,7 @@ fixtures:
       ref: 0.4.0
     apache:
       repo: https://github.com/puppetlabs/puppetlabs-apache
-      ref: 1.0.1
+      ref: 1.2.0
     ceph:
       repo: https://github.com/jiocloud/puppet-ceph
       ref: 'origin/svn_to_git_2'

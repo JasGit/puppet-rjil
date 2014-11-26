@@ -45,6 +45,7 @@ node /^stmonleader1/ {
   include rjil::ceph
   include rjil::ceph::mon
   include rjil::ceph::osd
+  include rjil::ceph::radosgw
   rjil::jiocloud::consul::service { 'stmonleader':
     port => 6789,
     check_command => '/usr/lib/jiocloud/tests/check_ceph_mon.sh'
@@ -65,6 +66,7 @@ node /^stmon\d+/ {
   include rjil::ceph
   include rjil::ceph::mon
   include rjil::ceph::osd
+  include rjil::ceph::radosgw
   ensure_resource('rjil::service_blocker', 'stmonleader', {})
   Class[rjil::base] -> Rjil::Service_blocker['stmonleader']
   Rjil::Service_blocker['stmonleader'] -> Class['rjil::ceph::mon::mon_config']

@@ -1,7 +1,6 @@
 # Define a radosgw
 #
 class rjil::keystone::radosgw (
-  $keystone_accepted_roles  = ['Member', 'admin', 'swiftoperator'],
   $region            = 'RegionOne',
   $public_protocol   = 'http',
   $public_address    = '127.0.0.1',
@@ -51,13 +50,9 @@ class rjil::keystone::radosgw (
 
   keystone_endpoint { "${region}/${auth_name}":
     ensure       => present,
-    public_url   => "${public_protocol}://${public_address}:${real_public_port}",
-    admin_url    => "${real_admin_protocol}://${real_admin_address}:${real_public_port}",
-    internal_url => "${real_internal_protocol}://${real_internal_address}:${real_public_port}",
+    public_url   => "${public_protocol}://${public_address}:${real_public_port}/swift/v1",
+    admin_url    => "${real_admin_protocol}://${real_admin_address}:${real_public_port}/swift/v1",
+    internal_url => "${real_internal_protocol}://${real_internal_address}:${real_public_port}/swift/v1",
   }
 
-  if $keystone_accepted_roles {
-    #Roles like "admin" may be defined elsewhere, so use ensure_resource
-    ensure_resource('keystone_role', $keystone_accepted_roles, { 'ensure' => 'present' })
-  }
 }
