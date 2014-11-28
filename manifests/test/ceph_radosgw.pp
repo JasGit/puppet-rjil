@@ -9,6 +9,11 @@ class rjil::test::ceph_radosgw {
 
   ensure_resource('package','python-swiftclient',{})
 
-  rjil::test { 'ceph_radosgw.sh': }
+  file { "/usr/lib/jiocloud/tests/ceph_radosgw.sh":
+    content => template('rjil/tests/ceph_radosgw.sh.erb'),
+    owner   => 'root',
+    group   => 'root',
+    mode    => '755',
+  }
 
 }

@@ -290,7 +290,6 @@ rjil::keystone::radosgw::public_protocol: "%{hiera('radosgw_protocol')}"
 rjil::keystone::radosgw::public_address: "%{hiera('radosgw_public_address')}"
 rjil::keystone::radosgw::port: "%{hiera('radosgw_port')}"
 rjil::keystone::radosgw:region: "%{hiera('region')}"
-rjil::keystone::radosgw::keystone_accepted_roles: ['Member', 'admin', 'swiftoperator']
 
 ########### Undercloud
 ############################

@@ -21,3 +21,4 @@ nova::compute::libvirt::libvirt_virt_type: qemu
 rjil::neutron::public_cidr: 100.1.0.0/24
 rjil::system::accounts::active_users: [soren,bodepd,hkumar,jenkins,consul,pandeyop]
 rjil::system::accounts::sudo_users: [soren,bodepd,hkumar,jenkins, consul, pandeyop]
+ceph::conf::mon_timecheck_interval: 30
