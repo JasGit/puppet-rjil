@@ -17,17 +17,18 @@ describe 'rjil::haproxy::openstack' do
 
   let :service_list do
     {
-      'horizon' => '80',
-      'horizon-https' => '443',
-      'novncproxy' => '6080',
-      'keystone' => '5000',
-      'keystone-admin' => '35357',
-      'glance' => '9292',
+      'horizon'         => '80',
+      'horizon-https'   => '443',
+      'novncproxy'      => '6080',
+      'keystone'        => '5000',
+      'keystone-admin'  => '35357',
+      'glance'          => '9292',
       'glance-registry' => '9191',
-      'cinder' => '8776',
-      'nova' => '8774',
-      'metadata' => '8775',
-      'nova-ec2' => '8773',
+      'cinder'          => '8776',
+      'nova'            => '8774',
+      'metadata'        => '8775',
+      'nova-ec2'        => '8773',
+      'radosgw'         => '80',
     }
   end
 
@@ -40,6 +41,7 @@ describe 'rjil::haproxy::openstack' do
       'cinder_ips'            => [],
       'nova_ips'              => [],
       'neutron_ips'           => [],
+      'radosgw_ips'           => [],
     }
   end
 

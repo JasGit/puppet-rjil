@@ -12,13 +12,12 @@ class rjil::ceph::radosgw {
   ##
   # Validation tests
   ##
-  rjil::test { 'ceph_radosgw.sh': }
+  include rjil::test::ceph_radosgw
 
   rjil::jiocloud::consul::service { 'radosgw':
     tags          => ['real'],
     port          => 80,
-    check_command => '/usr/lib/jiocloud/tests/ceph_radosgw.sh',
-    require       => Rjil::Test['ceph_radosgw.sh'],
+    check_command => '/usr/lib/nagios/plugins/check_http -H localhost',
   }
 
 }
